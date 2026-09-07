@@ -13,6 +13,8 @@ COPY ./pom.xml /app
 # Build the application
 RUN mvn -f /app/pom.xml clean package -DskipTests
 
+# Copy the generated JAR
+RUN cp /app/target/*.jar /app/app.jar
 
 EXPOSE 8080
 
