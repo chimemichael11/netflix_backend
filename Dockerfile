@@ -6,9 +6,9 @@ RUN apt-get update && apt-get install -y openjdk-17-jre-headless maven
 # Set the working directory
 WORKDIR /app
 
-# Set the working directory
+# Copy application files
 COPY ./src /app/src
-COPY ./pom.xml /app
+COPY ./pom.xml /app/pom.xml
 
 # Build the application
 RUN mvn -f /app/pom.xml clean package -DskipTests
@@ -19,5 +19,5 @@ RUN cp /app/target/*.jar /app/app.jar
 # Expose the application port
 EXPOSE 8080
 
-# Set the entry point for the container
+# Start the application
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
