@@ -14,7 +14,7 @@ COPY ./pom.xml /app/pom.xml
 RUN mvn -f /app/pom.xml clean package -DskipTests
 
 # Copy the generated JAR
-COPY ./target/*.jar /app/app.jar
+RUN cp /app/target/*.jar /app/app.jar
 
 # Expose the application ports
 EXPOSE 8080
