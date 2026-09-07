@@ -14,4 +14,4 @@ jobs:
 
       - name: Docker build
         run: |
-          hostnamectl
+          docker build -t netflix_backend:latest .
