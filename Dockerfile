@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y openjdk-17-jre-headless maven
 WORKDIR /app
 
 # Copy application files
-COPY .env /app/src/main/resources/.env
+COPY application.properties /app/src/main/resources/application.properties
 COPY ./src /app/src
 COPY ./pom.xml /app/pom.xml
 
